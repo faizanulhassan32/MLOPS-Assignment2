@@ -8,6 +8,7 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 	<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
 
@@ -33,12 +34,6 @@
 				<a href="#">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">Message</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Team</span>
 				</a>
 			</li>
 		</ul>
@@ -82,7 +77,7 @@
 				</li>
 				<li>
 					<span class="text">
-						<p style="font-size: 20px; font-weight: bold;">Team</p>br
+						<p style="font-size: 20px; font-weight: bold;">Team</p>
 						<p>Danyal Faheem : 19I-2014</p>
 						<p>Faizan Ul Hassan : 19I-1976</p>
 						<a href="https://github.com/faizanulhassan32/MLOPS-Assignment2">Github Link</a>
@@ -116,7 +111,7 @@
 									<td>{{ item.comment }}</td>
 									<td><span class="status {% if item.prediction == 'positive' %}completed{% elif item.prediction == 'negative' %}pending{% else %}process{% endif %}">{{ item.prediction|capitalize }}</span></td>
 								</tr>
-								{% endfor %}						
+							{% endfor %}                     
 						</tbody>
 					</table>
 				</div>
@@ -128,4 +123,14 @@
 	
 
 	<script src="static/script.js"></script>
+	<script>
+		setInterval(function() {
+			$.ajax({
+				url: "{{ url_for('index') }}",
+				success: function(result){
+					$('tbody').html($(result).find('tbody').html());
+				}
+			});
+		}, 10000);
+	</script>
 {% endblock %}

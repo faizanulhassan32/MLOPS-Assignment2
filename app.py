@@ -1,6 +1,7 @@
 import praw
 import joblib
 import json
+import time
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -27,14 +28,24 @@ def index():
     count = 0
     for comment in reddit.subreddit('all').stream.comments(skip_existing=True):
         prediction = predict_sentiment(comment)
-        if count >= 5:
-            break
         data.append({"title": comment.submission.title, "comment": comment.body, "prediction": prediction})
         count += 1
+        if count >= 10:
+            break
+
+    while True:
+        time.sleep(10)
+        for comment in reddit.subreddit('all').stream.comments(skip_existing=True):
+            prediction = predict_sentiment(comment)
+            data.append({"title": comment.submission.title, "comment": comment.body, "prediction": prediction})
+            data = data[-10:] # keep only the last 10 comments
+            break
+        else:
+            continue
+        break
 
     return render_template('index.html', data=data)
 
 
 if __name__ == '__main__':
     app.run()
-
