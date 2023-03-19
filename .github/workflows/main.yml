@@ -36,7 +36,7 @@ jobs:
       run: |
         pycodestyle --show-source --show-pep8 app.py
 
-    - name: Run the web application
-      run: |
-        python app.py
-        background: yes
+    #- name: Run the web application
+      #run: |
+        #python app.py
+        #background: yes
