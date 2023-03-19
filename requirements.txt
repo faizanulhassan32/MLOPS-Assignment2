@@ -1,4 +1,4 @@
-joblib==1.0.1
+joblib==1.1.1
 nltk==3.6.1
 pandas==1.2.4
 praw==7.7.0
