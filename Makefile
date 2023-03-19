@@ -7,10 +7,3 @@ format:
 
 lint:
 	pylint --fail-under=-1 app.py
-
-codestyle:
-	pycodestyle --show-source --show-pep8 app.py
-
-execute:
-	@echo "Starting the web application"
-	python app.py
