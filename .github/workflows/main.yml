@@ -1,0 +1,39 @@
+name: Python app CI
+
+on:
+  push:
+    branches: [Faizan]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.1
+
+    - name: Install dependencies
+      run: |
+        make install
+
+    - name: Code formatting
+      run: |
+        make format
+
+    - name: Linting
+      run: |
+        make lint
+
+    - name: Code style
+      run: |
+        make codestyle
+
+    - name: Run the web application
+      run: |
+        make execute
+        background: yes
