@@ -10,7 +10,7 @@ def prediction(comment):
     count_text = cv.transform([comment.body])
     predicted = MNB.predict(count_text)
     output = {"Title": comment.submission.title, "Comment": comment.body, "Prediction": sentiment_lookup[predicted[0]]}
-    print(json.dumps(output))
+    print(json.dumps(output, indent=4))
 
 
 reddit = praw.Reddit(
