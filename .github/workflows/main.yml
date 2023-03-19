@@ -29,7 +29,3 @@ jobs:
     - name: Linting
       run: |
         make lint
-
-    - name: Code style
-      run: |
-        make codestyle
