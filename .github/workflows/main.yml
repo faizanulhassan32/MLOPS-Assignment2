@@ -20,23 +20,25 @@ jobs:
 
     - name: Install dependencies
       run: |
+        @echo "Installing requirements"
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pytest pylint
 
     - name: Code formatting
       run: |
-        make format
+        black app.py
 
     - name: Linting
       run: |
-        make lint
+        pylint --fail-under=-1 app.py
 
     - name: Code style
       run: |
-        make codestyle
+        pycodestyle --show-source --show-pep8 app.py
 
     - name: Run the web application
       run: |
-        make execute
+        @echo "Starting the web application"
+        python app.py
         background: yes
