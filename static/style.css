@@ -590,26 +590,3 @@ body {
 		min-width: 420px;
 	}
 }
-
-.btn-download {
-	display: inline-block;
-	padding: 8px 12px;
-	background-color: #2196F3;
-	color: #fff;
-	border-radius: 4px;
-	cursor: pointer;
-  }
-  
-  .btn-download:hover {
-	background-color: #0c7cd5;
-  }
-  
-  .upload-container {
-	display: flex;
-	align-items: center;
-  }
-  
-  #csv-upload {
-	display: none;
-  }
-  

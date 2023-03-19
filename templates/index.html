@@ -7,7 +7,7 @@
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
 
@@ -66,29 +66,59 @@
 
 		<!-- MAIN -->
 		<main>
-			<div class="head-title">
-				<div class="upload-container">
-					<label for="csv-upload" class="btn-download">
-					  <i class='bx bxs-cloud-download'></i>
-					  <span class="text">Upload CSV</span>
-					</label>
-					<input type="file" id="csv-upload" accept=".csv" onchange="handleFileSelect(event)">
-				  </div>
-				  
-			</div>
+
+			<ul class="box-info">
+				<li>
+					<span class="text">
+						<p style="font-size: 20px; font-weight: bold;">Project details</p><br>
+						<p>We performed Sentiment analysis on the comments that are posted under a reddit post by getting live stream data using an API</p>
+					</span>
+				</li>
+				<li>
+					<span class="text">
+						<p style="font-size: 20px; font-weight: bold;">Models used</p><br>
+						<p>Here mention the model and its description</p>
+					</span>
+				</li>
+				<li>
+					<span class="text">
+						<p style="font-size: 20px; font-weight: bold;">Team</p>br
+						<p>Danyal Faheem : 19I-2014</p>
+						<p>Faizan Ul Hassan : 19I-1976</p>
+						<a href="https://github.com/faizanulhassan32/MLOPS-Assignment2">Github Link</a>
+					</span>
+				</li>
+			</ul>
+
 
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Live Data Incoming</h3>
-						<i class='bx bx-filter' ></i>
+						<h3>Sentiment Analysis</h3>
 					</div>
-					<main>
-						<div class="head-title">
-							<canvas id="orders-chart"></canvas>
-						</div>
-					</main>
-					
+					<table>
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Comment</th>
+								<th>Prediction</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- 
+								completed = positive
+								pending = negative
+								process = neutral 
+							-->
+							{% for item in data %}
+								<tr>
+									<td>{{ item.title }}</td>
+									<td>{{ item.comment }}</td>
+									<td><span class="status {% if item.prediction == 'positive' %}completed{% elif item.prediction == 'negative' %}pending{% else %}process{% endif %}">{{ item.prediction|capitalize }}</span></td>
+								</tr>
+								{% endfor %}						
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</main>
