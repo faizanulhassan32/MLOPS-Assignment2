@@ -21,23 +21,15 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-#        python -m pip install --upgrade pip
- #       pip install -r requirements.txt
-  #      pip install pytest pylint
 
     - name: Code formatting
       run: |
-        black app.py
+        make format
 
     - name: Linting
       run: |
-        pylint --fail-under=-1 app.py
+        make lint
 
     - name: Code style
       run: |
-        pycodestyle --show-source --show-pep8 app.py
-
-    #- name: Run the web application
-      #run: |
-        #python app.py
-        #background: yes
+        make codestyle
