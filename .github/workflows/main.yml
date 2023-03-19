@@ -19,7 +19,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        make install
+        make -n install
 
     - name: Code formatting
       run: |
