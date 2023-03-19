@@ -1,6 +1,6 @@
 Flask==2.2.2
 matplotlib==3.6.3
-python==3.11.1
+python==3.8.8
 black
 pylint==2.7.4
 pytest==6.2.3
