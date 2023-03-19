@@ -12,6 +12,6 @@ lint:
 codestyle:
 	pycodestyle --show-source --show-pep8 app.py
 
-run:
+execute:
 	@echo "Starting the web application"
 	python app.py
