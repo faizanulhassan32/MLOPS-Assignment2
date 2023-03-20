@@ -1,2 +1,2 @@
 # MLOPS-Assignment2
-# Reddit Sentiment Analysi
+# Reddit Sentiment Analysis
