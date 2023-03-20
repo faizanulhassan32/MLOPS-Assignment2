@@ -4,6 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
+#Copy files to image
 COPY requirements.txt ./requirements.txt
 COPY Makefile ./Makefile
 COPY Reddit_Data.csv ./Reddit_Data.csv
