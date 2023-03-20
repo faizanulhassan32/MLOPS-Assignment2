@@ -1,8 +1,10 @@
-name: Python app CI
+name: Python app Main CI
 
 on:
+  pull_request:
+    branches: [main]
   push:
-    branches: [Faizan]
+    branches: [main]
 
 jobs:
   build:
