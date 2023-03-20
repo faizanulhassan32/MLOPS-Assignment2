@@ -13,3 +13,5 @@ COPY vectorizer ./vectorizer
 RUN make install
 CMD ["python3", "app.py"]
 EXPOSE 5000
+
+ENTRYPOINT ["/bin/bash"]
