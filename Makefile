@@ -13,3 +13,7 @@ lint:
 codestyle:
 	pycodestyle --show-source --show-pep8 train.py
 	pycodestyle --show-source --show-pep8 inference.py
+
+lint:
+	pylint --fail-under=-1 app.py
+
