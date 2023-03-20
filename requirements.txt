@@ -1,6 +1,13 @@
-Flask==2.2.2
-matplotlib==3.6.3
+joblib==1.1.1
+nltk==3.6.1
+pandas==1.2.4
+praw==7.7.0
+scikit_learn==1.2.2
 black
 pylint==2.7.4
 pytest==6.2.3
 pycodestyle==2.6.0
+Flask==2.2.2
+matplotlib==3.6.3
+
+
