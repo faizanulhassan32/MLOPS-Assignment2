@@ -17,7 +17,8 @@ COPY vectorizer ./vectorizer
 # Installation of the dependecies
 RUN make install
 
-ENTRYPOINT ["python", "app.py"]
+# ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT ["python", "-m", "http.server", "5000"]
 # EXPOSE 5000
 
 # ENTRYPOINT ["/bin/bash"]
