@@ -17,7 +17,7 @@ COPY vectorizer ./vectorizer
 # Installation of the dependecies
 RUN make install
 
-CMD ["python", "app.py"]
+ENTRYPOINT ["python", "app.py"]
 EXPOSE 5000
 
-ENTRYPOINT ["/bin/bash"]
+# ENTRYPOINT ["/bin/bash"]
