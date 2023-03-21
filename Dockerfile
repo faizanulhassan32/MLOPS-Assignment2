@@ -23,8 +23,8 @@ RUN mkdir /static
 COPY static/script.js ./static/
 COPY static/style.css ./static/
 
-COPY templates/index.html /templates/index.html
-COPY templates/base.html /templates/base.html
+COPY templates/index.html ./templates/
+COPY templates/base.html ./templates/
 
 # Installation of the dependecies
 RUN make install
