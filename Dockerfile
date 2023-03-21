@@ -2,6 +2,9 @@ FROM python:3.11
 
 RUN mkdir /app
 
+ADD static /app/
+ADD templates /app/
+
 WORKDIR /app
 
 #Copy files to image
@@ -13,8 +16,7 @@ COPY inference.py ./inference.py
 COPY app.py ./app.py
 COPY model ./model
 COPY vectorizer ./vectorizer
-ADD static ./
-ADD templates ./
+
 
 # Installation of the dependecies
 RUN make install
