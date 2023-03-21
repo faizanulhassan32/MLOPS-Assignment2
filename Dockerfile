@@ -17,6 +17,14 @@ COPY app.py ./app.py
 COPY model ./model
 COPY vectorizer ./vectorizer
 
+RUN mkdir /templates
+RUN mkdir /static
+
+COPY static/script.js ./static/
+COPY static/style.css ./static/
+
+COPY templates/index.html /templates/index.html
+COPY templates/base.html /templates/base.html
 
 # Installation of the dependecies
 RUN make install
