@@ -2,6 +2,9 @@ FROM python:3.11
 
 RUN mkdir /app
 
+ADD static /app/
+ADD templates /app/
+
 WORKDIR /app
 
 #Copy files to image
@@ -14,10 +17,20 @@ COPY app.py ./app.py
 COPY model ./model
 COPY vectorizer ./vectorizer
 
+RUN mkdir /templates
+RUN mkdir /static
+
+COPY static/script.js ./static/
+COPY static/style.css ./static/
+
+COPY templates/index.html ./templates/
+COPY templates/base.html ./templates/
+
 # Installation of the dependecies
 RUN make install
 
-CMD ["python3", "app.py"]
-EXPOSE 5000
+ENTRYPOINT ["python", "app.py"]
+# ENTRYPOINT ["python", "-m", "http.server", "5000"]
+# EXPOSE 5000
 
-ENTRYPOINT ["/bin/bash"]
+# ENTRYPOINT ["/bin/bash"]

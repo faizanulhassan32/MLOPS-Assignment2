@@ -2,7 +2,7 @@ import praw
 import joblib
 import json
 import time
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 
 app = Flask(__name__)
 
@@ -46,6 +46,19 @@ def index():
 
     return render_template('index.html', data=data)
 
+def predict_comment(comment):
+    sentiment_lookup = {-1: "negative", 0: "neutral", 1: "positive"}
+    count_text = cv.transform([comment])
+    predicted = MNB.predict(count_text)
+    return sentiment_lookup[predicted[0]]
+
+
+@app.route('/search', methods=['POST'])
+def search():
+    comment = request.form['query']
+    prediction = predict_comment(comment)
+    data = [{"title":"Users comment","comment": comment, "prediction": prediction}]
+    return render_template('index.html', data=data)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=5000)

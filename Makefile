@@ -1,6 +1,7 @@
 install: 
 	@echo "Installing requirements"
-	pip install --upgrade pip && pip install -r requirements.txt
+	# pip install --upgrade pip && 
+	pip install -r requirements.txt
 
 format:
 	black *.py
