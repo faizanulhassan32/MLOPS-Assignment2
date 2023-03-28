@@ -7,3 +7,7 @@ black
 pylint==2.7.4
 pytest==6.2.3
 pycodestyle==2.6.0
+Flask==2.2.2
+matplotlib==3.6.3
+
+
